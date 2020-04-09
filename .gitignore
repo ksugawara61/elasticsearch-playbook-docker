@@ -1,0 +1,2 @@
+log/nginx/default/*
+!log/nginx/default/.gitkeep
