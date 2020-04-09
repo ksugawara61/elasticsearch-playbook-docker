@@ -10,7 +10,7 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     volumes:
-      - "./log/nginx/default:/var/log/nginx/default"
+      - "./volumes/log/nginx/default:/var/log/nginx/default"
     depends_on:
       - elasticsearch
       - kibana
@@ -24,6 +24,8 @@ services:
       - "9200:9200"
     expose:
       - '9300'
+    volumes:
+      - "./volumes/elasticsearch/data:/usr/share/elasticsearch/data"
   kibana:
     build:
       context: .
@@ -44,7 +46,7 @@ services:
       # Monitoring APIs -- https://www.elastic.co/guide/en/logstash/5.0/monitoring.html
       - '9600:9600'
     volumes:
-      - "./log/nginx/default:/var/log/nginx/default"
+      - "./volumes/log/nginx/default:/var/log/nginx/default"
     links:
       - elasticsearch
     depends_on:

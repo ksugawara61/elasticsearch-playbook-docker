@@ -1,2 +1,4 @@
-log/nginx/default/*
-!log/nginx/default/.gitkeep
+volumes/log/nginx/default/*
+!volumes/log/nginx/default/.gitkeep
+volumes/elasticsearch/data/*
+!volumes/elasticsearch/data/.gitkeep
