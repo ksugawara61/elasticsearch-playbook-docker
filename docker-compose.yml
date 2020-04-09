@@ -43,6 +43,8 @@ services:
       - '43448:43448/udp'
       # Monitoring APIs -- https://www.elastic.co/guide/en/logstash/5.0/monitoring.html
       - '9600:9600'
+    volumes:
+      - "./log/nginx/default:/var/log/nginx/default"
     links:
       - elasticsearch
     depends_on:
