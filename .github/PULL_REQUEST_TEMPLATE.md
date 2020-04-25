@@ -1,9 +1,9 @@
-## 概要
+## Abstracts
 
-関連するIssue #XX
+Related issue #XX
 
-## 検証項目
+## Verification items
 
-- [ ] RSpec
+- [ ] can display XXX
 
-## 備考
+## Supplements
