@@ -1,6 +1,6 @@
 ## Abstracts
 
-関連するIssue #XX
+Related issue #XX
 
 ## Verification items
 
