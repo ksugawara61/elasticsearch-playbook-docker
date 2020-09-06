@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: ./containers/nginx/Dockerfile
     ports:
-      - "80:80"
-      - "443:443"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
     environment:
       TZ: "Asia/Tokyo"
     volumes:
@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: ./containers/elasticsearch/Dockerfile
     ports:
-      - "9200:9200"
+      - "127.0.0.1:9200:9200"
     expose:
       - '9300'
     volumes:
@@ -31,7 +31,7 @@ services:
       context: .
       dockerfile: ./containers/kibana/Dockerfile
     ports:
-      - "5601:5601"
+      - "127.0.0.1:5601:5601"
     depends_on:
       - elasticsearch
   logstash:
@@ -40,11 +40,11 @@ services:
       dockerfile: ./containers/logstash/Dockerfile
     ports:
       # Beats input -- https://www.elastic.co/guide/en/logstash/5.0/plugins-inputs-beats.html
-      - '5044:5044'
+      - '127.0.0.1:5044:5044'
       # UDP input -- https://www.elastic.co/guide/en/logstash/master/plugins-inputs-udp.html#plugins-inputs-udp-codec
-      - '43448:43448/udp'
+      - '127.0.0.1:43448:43448/udp'
       # Monitoring APIs -- https://www.elastic.co/guide/en/logstash/5.0/monitoring.html
-      - '9600:9600'
+      - '127.0.0.1:9600:9600'
     volumes:
       - "./volumes/log/nginx/default:/var/log/nginx/default"
     links:
